@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/consensys/gnark-crypto/ecc"
-	"github.com/consensys/gnark/backend/groth16"
+	/* uncomment below to test cube */
+	// "github.com/consensys/gnark-crypto/ecc"
+	// "github.com/consensys/gnark/backend/groth16"
 	"github.com/consensys/gnark/frontend"
-	"github.com/consensys/gnark/frontend/cs/r1cs"
+	// "github.com/consensys/gnark/frontend/cs/r1cs"
 )
 
 // CubicCircuit defines a simple circuit
@@ -33,6 +34,7 @@ func (circuit *CubicCircuit) Define(api frontend.API) error {
 	return nil
 }
 
+/* uncomment below to test cube */
 // func main() {
 // 	// compiles our circuit into a R1CS
 // 	var circuit CubicCircuit
