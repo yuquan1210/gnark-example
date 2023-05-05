@@ -33,20 +33,20 @@ func (circuit *CubicCircuit) Define(api frontend.API) error {
 	return nil
 }
 
-func main() {
-	// compiles our circuit into a R1CS
-	var circuit CubicCircuit
-	ccs, _ := frontend.Compile(ecc.BLS12_381.ScalarField(), r1cs.NewBuilder, &circuit)
+// func main() {
+// 	// compiles our circuit into a R1CS
+// 	var circuit CubicCircuit
+// 	ccs, _ := frontend.Compile(ecc.BLS12_381.ScalarField(), r1cs.NewBuilder, &circuit)
 
-	// groth16 zkSNARK: Setup
-	pk, vk, _ := groth16.Setup(ccs)
+// 	// groth16 zkSNARK: Setup
+// 	pk, vk, _ := groth16.Setup(ccs)
 
-	// witness definition
-	assignment := CubicCircuit{X: 3, Sym_1: 9, Y: 27, Sym_2: 30, Out: 35}
-	witness, _ := frontend.NewWitness(&assignment, ecc.BLS12_381.ScalarField())
-	publicWitness, _ := witness.Public()
+// 	// witness definition
+// 	assignment := CubicCircuit{X: 3, Sym_1: 9, Y: 27, Sym_2: 30, Out: 35}
+// 	witness, _ := frontend.NewWitness(&assignment, ecc.BLS12_381.ScalarField())
+// 	publicWitness, _ := witness.Public()
 
-	// groth16: Prove & Verify
-	proof, _ := groth16.Prove(ccs, pk, witness)
-	groth16.Verify(proof, vk, publicWitness)
-}
+// 	// groth16: Prove & Verify
+// 	proof, _ := groth16.Prove(ccs, pk, witness)
+// 	groth16.Verify(proof, vk, publicWitness)
+// }
